@@ -18,10 +18,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>@Html.DisplayFor(m => m.Products.First().ProductName)</th>
-                        <th>@Html.DisplayFor(m => m.Products.First().ProductQuantity)</th>
-                        <th>@Html.DisplayFor(m => m.Products.First().ProductPrice)</th>
-                        <th>@Html.DisplayFor(m => m.Products.First().DateCreated)</th>
+                        <th>@Html.DisplayNameFor(m => m.Products.First().ProductId)</th>
+                        <th>@Html.DisplayNameFor(m => m.Products.First().ProductName)</th>
+                        <th>@Html.DisplayNameFor(m => m.Products.First().ProductQuantity)</th>
+                        <th>@Html.DisplayNameFor(m => m.Products.First().ProductPrice)</th>
+                        <th>@Html.DisplayNameFor(m => m.Products.First().DateCreated)</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -29,6 +30,7 @@
                     @foreach (var product in Model.Products)
                     {
                         <tr>
+                            <td>@Html.DisplayFor(m => product.ProductId)</td>
                             <td>@Html.DisplayFor(m => product.ProductName)</td>
                             <td>@Html.DisplayFor(m => product.ProductQuantity)</td>
                             <td>@Html.DisplayFor(m => product.ProductPrice)</td>
