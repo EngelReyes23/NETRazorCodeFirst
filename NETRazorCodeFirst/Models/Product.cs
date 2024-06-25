@@ -14,10 +14,10 @@ namespace NETRazorCodeFirst.Models
         public required string ProductDescription { get; set; }
 
         [Display(Name = "Product Price")]
-        public required decimal ProductPrice { get; set; }
+        public required double ProductPrice { get; set; }
 
         [Display(Name = "Product Quantity")]
-        public required decimal ProductQuantity { get; set; }
+        public required int ProductQuantity { get; set; }
 
         [Display(Name = "Date Created")]
         public DateTime DateCreated { get; set; }

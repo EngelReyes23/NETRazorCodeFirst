@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NETRazorCodeFirst.Models;
 
 namespace NETRazorCodeFirst.Data
 {
@@ -7,5 +8,7 @@ namespace NETRazorCodeFirst.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
         }
+
+        public DbSet<Product> Product { get; set; }
     }
 }
