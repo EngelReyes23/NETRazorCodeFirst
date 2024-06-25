@@ -22,5 +22,22 @@ namespace NETRazorCodeFirst.Pages.Products
         {
             Products = await _context.Product.ToListAsync();
         }
+
+        public async Task<ActionResult> OnPostDelete(int id)
+        {
+
+            var product = await _context.Product.FindAsync(id);
+
+            if (product != null)
+            {
+                _context.Product.Remove(product);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
