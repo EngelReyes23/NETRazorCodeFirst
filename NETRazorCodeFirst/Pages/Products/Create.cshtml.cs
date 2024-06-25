@@ -17,6 +17,9 @@ namespace NETRazorCodeFirst.Pages.Products
         [BindProperty]
         public Product Product { get; set; }
 
+        [TempData]
+        public string Message { get; set; }
+
         public void OnGet()
         {
         }
@@ -28,6 +31,7 @@ namespace NETRazorCodeFirst.Pages.Products
 
                 _context.Product.Add(Product);
                 await _context.SaveChangesAsync();
+                Message = "Product added successfully!";
                 return RedirectToPage("./Index");
             } else {
                 return Page();

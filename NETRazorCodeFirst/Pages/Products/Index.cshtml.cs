@@ -18,6 +18,9 @@ namespace NETRazorCodeFirst.Pages.Products
 
         public IEnumerable<Product> Products { get; set; }
 
+        [TempData]
+        public string Message { get; set; }
+
         public async Task OnGet()
         {
             Products = await _context.Product.ToListAsync();
@@ -32,6 +35,7 @@ namespace NETRazorCodeFirst.Pages.Products
             {
                 _context.Product.Remove(product);
                 await _context.SaveChangesAsync();
+                Message = "Product deleted successfully!";
                 return RedirectToPage("Index");
             }
             else

@@ -18,6 +18,9 @@ namespace NETRazorCodeFirst.Pages.Products
         [BindProperty]
         public Product Product { get; set; }
 
+        [TempData]
+        public string Message { get; set; }
+
         public async Task OnGet(int id)
         {
             Product = await _context.Product.FindAsync(id);
@@ -28,6 +31,7 @@ namespace NETRazorCodeFirst.Pages.Products
             if (ModelState.IsValid) {
                 _context.Attach(Product).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
+                Message = "Product updated successfully!";
                 return RedirectToPage("./Index");
             } else {
                 return Page();
